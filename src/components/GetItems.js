@@ -11,7 +11,7 @@ function GetItems() {
             })
             .catch(error => {
                 console.log(error)
-            }) 
+            })
     }, [])
 
     return (

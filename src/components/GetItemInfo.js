@@ -4,7 +4,7 @@ import Axios from 'axios';
 function GetItemInfo() {
     const [item, setItem] = useState([])
     const [id, setId] = useState(1)
-    const [assigned, setAssigned] = useState({message: '', boolValue: 'false'})
+    const [assigned, setAssigned] = useState({ message: '', boolValue: 'false' })
 
     useEffect(() => {
         Axios.get(`https://it-inventory-test.herokuapp.com/api/items/${id}`)
@@ -12,9 +12,9 @@ function GetItemInfo() {
                 setItem(response.data.item_info[0])
 
                 if (response.data.item_info[0].assigned_to === true) {
-                    setAssigned({message: 'Assigned', boolValue: 'true'})
+                    setAssigned({ message: 'Assigned', boolValue: 'true' })
                 } else {
-                    setAssigned({message: 'Not Assigned', boolValue: 'false'})
+                    setAssigned({ message: 'Not Assigned', boolValue: 'false' })
                 }
             })
             .catch(error => {
@@ -22,7 +22,7 @@ function GetItemInfo() {
             })
     }, [id])
 
-    return(
+    return (
         <div>
             <ul>
                 <input type='text' value={id} onChange={e => setId(e.target.value)} />
