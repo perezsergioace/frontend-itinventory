@@ -24,13 +24,15 @@ function GetItemInfo() {
 
     return(
         <div>
-            <input type='text' value={id} onChange={e => setId(e.target.value)} />
-            <h2>{item.item_name}</h2>
-            <p>{item.price}</p>
-            <p>{item.purchased_date}</p>
-            <p>{item.item_added_date}</p>
-            <p>{item.comment}</p>
-            <p className={assigned.boolValue}>{assigned.message}</p>
+            <ul>
+                <input type='text' value={id} onChange={e => setId(e.target.value)} />
+                <h2>{item.item_name}</h2>
+                <p>{item.price}</p>
+                <p>{item.purchased_date}</p>
+                <p>{item.item_added_date}</p>
+                <p>{item.comment}</p>
+                <span className={assigned.boolValue}>{assigned.message}</span>
+            </ul>
         </div>
     )
 }
