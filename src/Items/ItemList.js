@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 const ItemList = (props) => {
@@ -48,6 +49,7 @@ const ItemList = (props) => {
                         <th>ID</th>
                         <th>Item Name</th>
                         <th>Item Type</th>
+                        <th className='text-center'>&#9881; Controls</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +60,10 @@ const ItemList = (props) => {
                                 <Link to={`items/${item.id}`}>{item.name}</Link>
                             </td>
                             <td>{item.item_type}</td>
+                            <div className='text-center'>
+                                <Button style={{margin: '10px 20px'}} variant='primary'>Edit</Button>
+                                <Button variant='danger'>Delete</Button>
+                            </div>
                         </tr>
                     ))}
                 </tbody>
