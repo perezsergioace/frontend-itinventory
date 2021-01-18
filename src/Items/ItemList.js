@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const ItemList = (props) => {
     const [items, setItems] = useState([])
@@ -32,7 +32,7 @@ const ItemList = (props) => {
     }, [])
 
     return (
-        <div style={{width: '95%', margin: 'auto'}}>
+        <div style={{ width: '95%', margin: 'auto' }}>
             <h1>Items</h1>
             <Form>
                 <Form.Control
