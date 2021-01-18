@@ -60,10 +60,10 @@ const ItemList = (props) => {
                                 <Link to={`items/${item.id}`}>{item.name}</Link>
                             </td>
                             <td>{item.item_type}</td>
-                            <div className='text-center'>
+                            <td className='text-center'>
                                 <Button style={{margin: '10px 20px'}} variant='primary'>Edit</Button>
                                 <Button variant='danger'>Delete</Button>
-                            </div>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
