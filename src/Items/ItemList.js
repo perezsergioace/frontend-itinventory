@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
-
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom'
 
 const ItemList = (props) => {
     const [items, setItems] = useState([])
+    const [search, setSearch] = useState('')
+    const [filteredItems, setFilteredItems] = useState([])
+
+    useEffect(() => {
+        setFilteredItems(
+            items.filter((item) =>
+                item.name.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }, [search, items])
 
     useEffect(() => {
         const getItems = () => {
@@ -22,7 +32,16 @@ const ItemList = (props) => {
     }, [])
 
     return (
-        <div>
+        <div style={{width: '95%', margin: 'auto'}}>
+            <h1>Items</h1>
+            <Form>
+                <Form.Control
+                    size='sm'
+                    type='text'
+                    placeholder='Search Items'
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </Form>
             <Table striped bordered hover responsive variant='dark'>
                 <thead>
                     <tr>
@@ -32,7 +51,7 @@ const ItemList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {items.map(item => (
+                    {filteredItems.map(item => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>

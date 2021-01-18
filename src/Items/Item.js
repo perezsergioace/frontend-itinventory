@@ -10,7 +10,6 @@ const Item = (props) => {
         axios
             .get(`https://it-inventory-test.herokuapp.com/api/items/${id}`)
             .then(response => {
-                console.log(response)
                 setItem(response.data.item_info[0]);
             })
             .catch(error => {
