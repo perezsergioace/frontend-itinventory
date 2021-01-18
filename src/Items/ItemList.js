@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Table from 'react-bootstrap/Table';
 
 import { Link } from 'react-router-dom'
 
@@ -22,22 +23,26 @@ const ItemList = (props) => {
 
     return (
         <div>
-            {items.map(item => (
-                <ItemDetails key={item.id} item={item} />
-            ))}
-        </div>
-    )
-}
-
-function ItemDetails({ item }) {
-    const { name, item_type } = item;
-    
-    return (
-        <div>
-            <Link to={`/items/${item.id}`}>
-                <h2>{name}</h2>
-            </Link>
-            <p>{item_type}</p>
+            <Table striped bordered hover responsive variant='dark'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item Name</th>
+                        <th>Item Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items.map(item => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>
+                                <Link to={`items/${item.id}`}>{item.name}</Link>
+                            </td>
+                            <td>{item.item_type}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </div>
     )
 }
