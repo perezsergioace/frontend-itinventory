@@ -12,7 +12,7 @@ const ItemsErrorMessage = () => {
                     size='sm'
                     type='text'
                     placeholder='Search Items'
-                    // onChange={(e) => setSearch(e.target.value)}
+                // onChange={(e) => setSearch(e.target.value)}
                 />
             </Form>
             <Table striped bordered hover responsive variant='dark'>
