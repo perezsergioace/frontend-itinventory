@@ -32,6 +32,16 @@ const ItemList = (props) => {
         getItems();
     }, [])
 
+    const removeItem = (id) => {
+        let url = `https://it-inventory-test.herokuapp.com/api/items/${id}`
+
+        axios.delete(url).then(response => {
+            const del = items.filter(item => id !== item.id)
+            setItems(del)
+            console.log('res', response)
+        })
+    }
+
     return (
         <div style={{ width: '95%', margin: 'auto' }}>
             <h1>Items</h1>
@@ -62,7 +72,7 @@ const ItemList = (props) => {
                             <td>{item.item_type}</td>
                             <td className='text-center'>
                                 <Button style={{margin: '10px 20px'}} variant='primary'>Edit</Button>
-                                <Button variant='danger'>Delete</Button>
+                                <Button variant='danger' onClick={() => removeItem(item.id)}>Delete</Button>
                             </td>
                         </tr>
                     ))}
