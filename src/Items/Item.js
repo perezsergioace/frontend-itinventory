@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ItemCard from '../components/ItemCard';
 
 const Item = (props) => {
     const [item, setItem] = useState();
@@ -21,14 +22,15 @@ const Item = (props) => {
         return <div>Trouble Loading Item...</div>
     }
 
-    const { item_name, price, item_added_date, comment } = item;
+    // const { item_name, price, item_added_date, comment } = item;
 
     return (
         <div>
-            <h2>{item_name}</h2>
-            <p>{price}</p>
-            <p>{item_added_date}</p>
-            <p>{comment}</p>
+            {/* <h2>{item_name}</h2> */}
+            {/* <p>{price}</p> */}
+            {/* <p>{item_added_date}</p> */}
+            {/* <p>{comment}</p> */}
+            <ItemCard item={item}/>
         </div>
     )
 }
