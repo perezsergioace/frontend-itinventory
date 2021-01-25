@@ -30,7 +30,7 @@ const Item = (props) => {
             {/* <p>{price}</p> */}
             {/* <p>{item_added_date}</p> */}
             {/* <p>{comment}</p> */}
-            <ItemCard item={item}/>
+            <ItemCard item={item} />
         </div>
     )
 }
