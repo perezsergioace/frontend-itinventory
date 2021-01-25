@@ -1,12 +1,18 @@
 import React from 'react'
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Button from 'react-bootstrap/Button'
 
 const ItemCard = ({ item }) => {
     return (
         <div>
-            <h1>{item.item_name}</h1>
-            <h1>{item.price}</h1>
-            <h1>{item.item_added_date}</h1>
-            <h1>{item.comment}</h1>
+            <Jumbotron>
+                <h1>{item.item_name}</h1>
+                <h2>${item.price}</h2>
+                <p>{item.comment}</p>
+                <p>
+                    <Button variant="primary">Edit Item</Button>
+                </p>
+            </Jumbotron>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ItemCard from '../components/ItemCard';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Item = (props) => {
     const [item, setItem] = useState();
@@ -19,7 +20,14 @@ const Item = (props) => {
     }, [props.match.params.id]);
 
     if (!item) {
-        return <div>Trouble Loading Item...</div>
+        return (
+            <div>
+                <h1>Trouble Loading Item...</h1>
+                <Spinner animation="border" variant="danger">
+                    <span className="sr-only">Trouble Loading Item...</span>
+                </Spinner>
+            </div>
+        )
     }
 
     return (
