@@ -39,6 +39,7 @@ const ItemList = (props) => {
         axios.delete(url).then(response => {
             const del = items.filter(item => id !== item.id)
             setItems(del)
+            console.log('item was deleted.')
             console.log('res', response)
         })
     }
