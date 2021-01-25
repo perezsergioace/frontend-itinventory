@@ -22,14 +22,8 @@ const Item = (props) => {
         return <div>Trouble Loading Item...</div>
     }
 
-    // const { item_name, price, item_added_date, comment } = item;
-
     return (
         <div>
-            {/* <h2>{item_name}</h2> */}
-            {/* <p>{price}</p> */}
-            {/* <p>{item_added_date}</p> */}
-            {/* <p>{comment}</p> */}
             <ItemCard item={item} />
         </div>
     )
